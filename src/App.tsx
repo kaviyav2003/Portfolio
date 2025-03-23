@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          this is kaviya
+          this is kaviya portfolio page
         </a>
       </header>
     </div>
