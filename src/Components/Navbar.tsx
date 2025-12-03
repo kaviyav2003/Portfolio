@@ -92,4 +92,26 @@ const NavbarComponent = () => {
   );
 };
 
+
+// return (
+//   <Navbar>
+//     <Logo>Kaviya</Logo> {/* Left-aligned logo */}
+//     <Hamburger onClick={() => setMenuOpen(!menuOpen)}>
+//       {menuOpen ? <FaTimes /> : <FaBars />}
+//     </Hamburger>
+//     <NavMenu menuOpen={menuOpen}>
+//       <NavItem href="#about">About</NavItem>
+//       <NavItem href="#skills">Skills</NavItem>
+//       <NavItem href="#visionary">Visionary</NavItem>
+//       <NavItem href="#experience">Experience</NavItem>
+//       <NavItem href="#projects">Projects</NavItem>
+//       <NavItem href="#education">Education</NavItem>
+//     </NavMenu>
+//   </Navbar>
+// );
+// };
+
+
+
+
 export default NavbarComponent;
