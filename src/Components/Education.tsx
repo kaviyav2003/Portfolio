@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 // 🔷 Premium Modern Education Section (Glass + Shapes)
-
 const EducationSection = styled.section`
   background: var(--first-color);
   padding: 6rem 2rem;
@@ -14,6 +13,7 @@ const EducationSection = styled.section`
   align-items: center;
 `;
 
+// 🔷 Title
 const Title = styled.h1`
   font-size: 3rem;
   margin-bottom: 3rem;
@@ -21,28 +21,102 @@ const Title = styled.h1`
   letter-spacing: 1px;
 `;
 
+// 🔷 Education Card
 const EducationCard = styled.div`
   width: 100%;
-  max-width: 800px;
-  padding: 2rem;
-  border-radius: 1.5rem;
+  max-width: 830px;
+  padding: 2.7rem 2rem 2.7rem 4rem; /* extra left padding for marker */
+  border-radius: 1.9rem;
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
 
-  /* Glassmorphism */
-  backdrop-filter: blur(12px);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  /* ✨ Soft frosted base */
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(14px);
 
-  margin-bottom: 2rem;
-  transition: 0.35s ease;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+  /* ✨ Layer 1 — Subtle Soft Glow */
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 150%;
+    height: 150%;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.02)
+    );
+    opacity: 0.12;
+    filter: blur(45px);
+    z-index: -2;
+  }
+
+  /* ✨ Layer 2 — Static Gradient Mist */
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -15%;
+    right: -5%;
+    width: 130%;
+    height: 130%;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.07),
+      rgba(255, 255, 255, 0.02)
+    );
+    opacity: 0.10;
+    filter: blur(65px);
+    border-radius: 50%;
+    z-index: -3;
+  }
+
+  /* ✨ Luxury Depth Shadow */
+  box-shadow:
+    0 28px 65px rgba(0, 0, 0, 0.55),
+    0 12px 28px rgba(0, 0, 0, 0.35),
+    inset 0 0 20px rgba(255, 255, 255, 0.03);
+
+  transition: 0.45s ease;
 
   &:hover {
-    transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.10);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    transform: translateY(-14px) scale(1.02);
+
+    box-shadow:
+      0 38px 85px rgba(0, 0, 0, 0.65),
+      0 18px 40px rgba(0, 0, 0, 0.45),
+      inset 0 0 30px rgba(255, 255, 255, 0.05);
   }
 `;
 
+const CardMarker = styled.div`
+  position: absolute;
+  left: -3rem;               /* small gap from card left edge */
+  top: 50%;                 /* vertical center */
+  transform: translateY(-50%); /* perfectly center vertically */
+  width: 100px;
+  height: 100px;
+  background-color: var( --fourth-color);
+  border-radius: 50%;
+  border: 2px solid var(--first-color); /* optional */
+  z-index: 5;               /* above pseudo-elements */
+`;
+
+
+// 🔷 Optional: Vertical Line connecting markers
+const RoadmapLine = styled.div`
+  position: absolute;
+  left: -0.25rem;
+  top: 2.5rem;
+  width: 4px;
+  height: calc(100% - 5rem);
+  background: yellow;
+  z-index: 0;
+`;
+
+// 🔷 Text inside card
 const Degree = styled.h3`
   font-size: 1.8rem;
   font-family: var(--primary-font);
@@ -64,7 +138,7 @@ const Duration = styled.p`
   font-weight: 600;
 `;
 
-// 🔷 Background Shapes (Do NOT affect the cards)
+// 🔷 Background Shapes
 const ShapeOne = styled.div`
   position: absolute;
   width: 150px;
@@ -127,11 +201,13 @@ const EducationComponent = () => {
 
       {education.map((edu, index) => (
         <EducationCard key={index}>
+          <CardMarker />   {/* Small yellow circle */}
           <Degree>{edu.degree}</Degree>
           <Institution>{edu.institution}</Institution>
           <Duration>{edu.duration}</Duration>
         </EducationCard>
       ))}
+
     </EducationSection>
   );
 };

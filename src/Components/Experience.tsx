@@ -10,37 +10,63 @@ const ExperienceSection = styled.section`
   overflow: hidden;
 `;
 
-// 🔷 Title Box (Bold, Centered, White Text with Background)
+// 🔷 Title Box
 const TitleBox = styled.div`
   font-size: 3rem;
-  font-weight: 800; /* Bold */
-  margin: 0 auto 1rem auto; /* Center horizontally */
+  font-weight: 800;
+  margin: 0 auto 1rem auto;
   font-family: var(--primary-font);
   letter-spacing: 1px;
   text-align: center;
-  color: var(--sixth-color); /* White text */
+  color: var(--sixth-color);
   padding: 1rem 3rem;
- `;
-
+`;
 
 // 🔷 Description
 const Description = styled.p`
   font-size: 1.3rem;
   font-family: var(--secondary-font);
-  color: var(--fifth-color); /* Different color for description */
+  color: var(--fifth-color);
   text-align: center;
   margin-bottom: 3rem;
 `;
 
-// 🔷 Experience Cards Container
+// 🔷 Cards Container with timeline
 const CardsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
   align-items: center;
+  position: relative;
+  gap: 3rem;
+
+  /* Vertical line */
+  &::before {
+    content: "";
+    position: absolute;
+    left: 25rem; /* distance from left edge */
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var( --fourth-color);
+    border-radius: 2px;
+    z-index: 0;
+  }
 `;
 
-// 🔷 Experience Card
+// 🔷 Diamond marker
+const DiamondMarker = styled.div`
+  position: absolute;
+  left: -1rem; /* connect to vertical line */
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg); /* diamond shape */
+  width: 30px;
+  height: 30px;
+  background-color: var( --fourth-color);
+  z-index: 2;
+  border: 2px solid var(--first-color); /* optional border */
+`;
+
+// 🔷 Experience Card (original styles kept)
 const ExperienceCard = styled.div`
   width: 36rem;
   max-width: 90%;
@@ -58,6 +84,8 @@ const ExperienceCard = styled.div`
   align-items: flex-start;
   gap: 1.2rem;
   text-align: left;
+
+  position: relative; /* for diamond marker positioning */
 
   &:hover {
     transform: translateY(-8px);
@@ -90,7 +118,7 @@ const ExperienceCard = styled.div`
   p {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #ffffff; /* White for role & duration */
+    color: #ffffff;
   }
 
   @media (max-width: 768px) {
@@ -113,7 +141,7 @@ const Duration = styled.p`
   color: #ffffff;
 `;
 
-// 🔷 Background Shapes
+// 🔷 Background Shapes (kept original)
 const ShapeOne = styled.div`
   position: absolute;
   width: 180px;
@@ -166,12 +194,14 @@ const ExperienceComponent = () => {
 
       <CardsContainer>
         <ExperienceCard>
+          <DiamondMarker />
           <Company>ES EthicSecur SofTec Pvt. Ltd.</Company>
           <Role>MERN Stack Developer</Role>
           <Duration>Jan 2024 - Present</Duration>
         </ExperienceCard>
 
         <ExperienceCard>
+          <DiamondMarker />
           <Company>ERP Hub Solutions</Company>
           <Role>SAP ABAP Trainee</Role>
           <Duration>Apr 2023 - Jul 2023</Duration>

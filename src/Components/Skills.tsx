@@ -11,7 +11,7 @@ const SkillsSection = styled.section`
   text-align: center;
   position: relative;
   overflow: hidden;
-
+  
   &::before {
     content: "";
     position: absolute;
@@ -66,7 +66,7 @@ const StackBox = styled.div`
   border-radius: 20px;
   color: var(--fourth-color);
   text-align: center;
-  box-shadow: 50px 50px 30px rgba(42, 39, 39, 0.3);
+  box-shadow: 50px 50px 30px rgba(54, 54, 54, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
