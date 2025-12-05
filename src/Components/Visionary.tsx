@@ -6,15 +6,22 @@ const CustomTitle = styled.div`
   font-weight: bold;
   margin-bottom: 1rem;
   color: var(--sixth-color);
+
+  @media (max-width: 480px) {
+    font-size: 1.4rem;
+  }
 `;
 
 const CustomParagraph = styled.div`
   font-size: 1rem;
   color: var(--fifth-color);
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const VisionarySection = styled.section`
-  // background-color: var(--first-color);
   color: var(--fifth-color);
   padding: 4rem 2rem;
   display: flex;
@@ -35,10 +42,9 @@ const VisionarySection = styled.section`
     background-color: var(--second-color);
     border-radius: 50%;
     z-index: -1;
-    opacity: 0.3; /* Increased opacity for visibility */
+    opacity: 0.3;
   }
 
-  /* Optional: Add a custom polygon shape */
   &::before {
     content: "";
     position: absolute;
@@ -52,8 +58,7 @@ const VisionarySection = styled.section`
     transform: translateX(-50%);
     z-index: -1;
     opacity: 0.5;
-        filter: blur(70px);
-
+    filter: blur(70px);
   }
 `;
 
@@ -68,6 +73,13 @@ const StyledShape = styled.div`
   transform: rotate(45deg);
   border-radius: 20px;
   filter: blur(10px);
+
+  @media (max-width: 480px) {
+    width: 80px;
+    height: 80px;
+    top: 10%;
+    right: 10%;
+  }
 `;
 
 const Title = styled.h1`
@@ -75,6 +87,10 @@ const Title = styled.h1`
   margin-bottom: 2rem;
   font-family: var(--primary-font);
   color: var(--sixth-color);
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
 `;
 
 const Subheading = styled.h2`
@@ -82,6 +98,11 @@ const Subheading = styled.h2`
   color: var(--third-color);
   margin-bottom: 2rem;
   font-family: var(--primary-font);
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+    padding: 0 1rem;
+  }
 `;
 
 const BoxContainer = styled.div`
@@ -90,6 +111,10 @@ const BoxContainer = styled.div`
   gap: 2rem;
   width: 100%;
   max-width: 800px;
+
+  @media (max-width: 480px) {
+    gap: 1.5rem;
+  }
 `;
 
 const Box = styled.div`
@@ -99,14 +124,18 @@ const Box = styled.div`
   background-color: var(--first-color);
   color: var(--sixth-color);
   text-align: center;
-  box-shadow: inset 6px 2px 3px 1px var(--fourth-color); /* Inner shadow */
+  box-shadow: inset 6px 2px 3px 1px var(--fourth-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease,
     background-color 0.3s ease;
 
   &:hover {
     transform: scale(1.05);
-    box-shadow: inset 0px 3px 10px 2px var(--fourth-color); /* Keeps inner shadow on hover */
-    
+    box-shadow: inset 0px 3px 10px 2px var(--fourth-color);
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.8rem;
+    margin: 1rem;
   }
 `;
 

@@ -1,3 +1,5 @@
+// Updated ProjectsComponent with mobile responsiveness
+
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
@@ -11,9 +13,12 @@ const ProjectsSection = styled.section`
   flex-direction: column;
   align-items: center;
   color: var(--sixth-color);
+
+  @media (max-width: 480px) {
+    padding: 4rem 1rem;
+  }
 `;
 
-/* SHAPES — BACKGROUND ONLY */
 const ShapeOne = styled.div`
   position: absolute;
   width: 180px;
@@ -24,7 +29,14 @@ const ShapeOne = styled.div`
   left: 5%;
   border-radius: 50%;
   filter: blur(18px);
-  z-index: 1; /* behind everything */
+  z-index: 1;
+
+  @media (max-width: 480px) {
+    width: 120px;
+    height: 120px;
+    top: 5%;
+    left: 2%;
+  }
 `;
 
 const ShapeTwo = styled.div`
@@ -39,6 +51,12 @@ const ShapeTwo = styled.div`
   transform: rotate(45deg);
   filter: blur(22px);
   z-index: 1;
+
+  @media (max-width: 480px) {
+    width: 150px;
+    height: 150px;
+    right: 5%;
+  }
 `;
 
 const ShapeThree = styled.div`
@@ -52,6 +70,12 @@ const ShapeThree = styled.div`
   border-radius: 50%;
   filter: blur(20px);
   z-index: 1;
+
+  @media (max-width: 480px) {
+    width: 100px;
+    height: 100px;
+    left: 30%;
+  }
 `;
 
 const Title = styled.h1`
@@ -60,15 +84,24 @@ const Title = styled.h1`
   font-family: var(--primary-font);
   letter-spacing: 1px;
   z-index: 4;
+
+  @media (max-width: 480px) {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const ProjectsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
   width: 100%;
-  max-width: 1300px;
-  z-index: 4; /* cards container above shapes */
+  max-width: 1200px;
+  z-index: 4;
+
+  @media (max-width: 480px) {
+    gap: 1.5rem;
+  }
 `;
 
 const Card = styled(motion.div)`
@@ -82,7 +115,11 @@ const Card = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  z-index: 5; /* ensure cards STAY above shapes */
+
+  @media (max-width: 480px) {
+    padding: 1.2rem;
+    gap: 0.8rem;
+  }
 `;
 
 const ProjectImage = styled.img`
@@ -90,23 +127,39 @@ const ProjectImage = styled.img`
   height: 200px;
   object-fit: cover;
   border-radius: 1rem;
+
+  @media (max-width: 480px) {
+    height: 160px;
+  }
 `;
 
 const ProjectTitle = styled.h3`
   font-size: 1.5rem;
   font-family: var(--primary-font);
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const Tech = styled.p`
   font-size: 0.95rem;
   opacity: 0.9;
   font-family: var(--primary-font);
+
+  @media (max-width: 480px) {
+    font-size: 0.85rem;
+  }
 `;
 
 const Desc = styled.p`
   font-size: 0.95rem;
   opacity: 0.9;
   font-family: var(--secondary-font);
+
+  @media (max-width: 480px) {
+    font-size: 0.85rem;
+  }
 `;
 
 const LearnMore = styled.a`
@@ -123,6 +176,11 @@ const LearnMore = styled.a`
 
   &:hover {
     background: #eb4604;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.8rem;
   }
 `;
 
@@ -164,11 +222,7 @@ const ProjectsComponent = () => {
 
       <ProjectsGrid>
         {projects.map((project, index) => (
-          <Card
-            key={index}
-            whileHover={{ y: -10, scale: 1.03 }}
-            transition={{ duration: 0.3 }}
-          >
+          <Card key={index} whileHover={{ y: -10, scale: 1.03 }} transition={{ duration: 0.3 }}>
             <ProjectImage src={project.image} alt={project.title} />
             <ProjectTitle>{project.title}</ProjectTitle>
             <Tech>{project.technologies}</Tech>

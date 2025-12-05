@@ -5,9 +5,13 @@ const ExperienceSection = styled.section`
   background-color: var(--first-color);
   color: var(--sixth-color);
   font-family: var(--primary-font);
-  padding: 6rem 2rem;
+  padding: 3rem 2rem;
   position: relative;
   overflow: hidden;
+
+  @media (max-width: 480px) {
+    padding: 1rem 1rem;
+  }
 `;
 
 // 🔷 Title Box
@@ -15,11 +19,14 @@ const TitleBox = styled.div`
   font-size: 3rem;
   font-weight: 800;
   margin: 0 auto 1rem auto;
-  font-family: var(--primary-font);
-  letter-spacing: 1px;
   text-align: center;
-  color: var(--sixth-color);
   padding: 1rem 3rem;
+  color: var(--sixth-color);
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+  }
 `;
 
 // 🔷 Description
@@ -29,9 +36,14 @@ const Description = styled.p`
   color: var(--fifth-color);
   text-align: center;
   margin-bottom: 3rem;
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
 `;
 
-// 🔷 Cards Container with timeline
+// 🔷 Cards Container
 const CardsContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -39,34 +51,41 @@ const CardsContainer = styled.div`
   position: relative;
   gap: 3rem;
 
-  /* Vertical line */
   &::before {
     content: "";
     position: absolute;
-    left: 25rem; /* distance from left edge */
+    left: 25rem;
     top: 0;
     width: 4px;
     height: 100%;
-    background-color: var( --fourth-color);
+    background-color: var(--fourth-color);
     border-radius: 2px;
     z-index: 0;
+
+    @media (max-width: 480px) {
+      display: none;
+    }
   }
 `;
 
 // 🔷 Diamond marker
 const DiamondMarker = styled.div`
   position: absolute;
-  left: -1rem; /* connect to vertical line */
+  left: -1rem;
   top: 50%;
-  transform: translateY(-50%) rotate(45deg); /* diamond shape */
+  transform: translateY(-50%) rotate(45deg);
   width: 30px;
   height: 30px;
-  background-color: var( --fourth-color);
+  background-color: var(--fourth-color);
+  border: 2px solid var(--first-color);
   z-index: 2;
-  border: 2px solid var(--first-color); /* optional border */
+
+  @media (max-width: 480px) {
+    display: none;
+  }
 `;
 
-// 🔷 Experience Card (original styles kept)
+// 🔷 Experience Card
 const ExperienceCard = styled.div`
   width: 36rem;
   max-width: 90%;
@@ -80,49 +99,40 @@ const ExperienceCard = styled.div`
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
   gap: 1.2rem;
   text-align: left;
 
-  position: relative; /* for diamond marker positioning */
+  position: relative;
+
+  @media (max-width: 480px) {
+    padding: 1.5rem;
+    gap: 0.8rem;
+    width: 95%;
+    text-align: center;
+  }
 
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
   }
 
-  h3,
-  p {
-    transition: transform 0.4s ease, text-shadow 0.4s ease;
-    transform-style: preserve-3d;
-  }
-
-  &:hover h3 {
-    transform: translateZ(20px);
-    text-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    color: var(--fourth-color);
-  }
-
-  &:hover p {
-    transform: translateZ(10px);
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: var(--fifth-color);
-  }
-
   h3 {
     font-size: 1.8rem;
     font-weight: 700;
+
+    @media (max-width: 480px) {
+      font-size: 1.4rem;
+    }
   }
 
   p {
     font-size: 1.1rem;
     line-height: 1.6;
     color: #ffffff;
-  }
 
-  @media (max-width: 768px) {
-    width: 90%;
+    @media (max-width: 480px) {
+      font-size: 0.95rem;
+    }
   }
 `;
 
@@ -141,7 +151,7 @@ const Duration = styled.p`
   color: #ffffff;
 `;
 
-// 🔷 Background Shapes (kept original)
+// 🔷 Background Shapes
 const ShapeOne = styled.div`
   position: absolute;
   width: 180px;
@@ -153,6 +163,13 @@ const ShapeOne = styled.div`
   border-radius: 50%;
   filter: blur(80px);
   z-index: 0;
+
+  @media (max-width: 480px) {
+    width: 120px;
+    height: 120px;
+    top: 5%;
+    left: 2%;
+  }
 `;
 
 const ShapeTwo = styled.div`
@@ -166,6 +183,13 @@ const ShapeTwo = styled.div`
   border-radius: 40%;
   filter: blur(100px);
   z-index: 0;
+
+  @media (max-width: 480px) {
+    width: 150px;
+    height: 150px;
+    right: 5%;
+    bottom: 10%;
+  }
 `;
 
 const ShapeThree = styled.div`
@@ -180,6 +204,11 @@ const ShapeThree = styled.div`
   border-radius: 30%;
   filter: blur(90px);
   z-index: 0;
+
+  @media (max-width: 480px) {
+    width: 100px;
+    height: 100px;
+  }
 `;
 
 const ExperienceComponent = () => {

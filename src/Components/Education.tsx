@@ -3,7 +3,7 @@ import styled from "styled-components";
 // 🔷 Premium Modern Education Section (Glass + Shapes)
 const EducationSection = styled.section`
   background: var(--first-color);
-  padding: 6rem 2rem;
+  padding: 3rem 2rem;
   min-height: 100vh;
   position: relative;
   overflow: hidden;

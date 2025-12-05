@@ -5,7 +5,7 @@ import styled from "styled-components";
 const ContactSection = styled.section`
   background: var(--first-color);
   color: var(--sixth-color);
-  padding: 6rem 2rem;
+  padding: 3rem 2rem;
   min-height: 100vh;
   position: relative;
   overflow: hidden;
